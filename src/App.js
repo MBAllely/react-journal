@@ -22,18 +22,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "This is the title!",
+      title: "This is the header!",
       week1: {
         title: "Week 1",
         link: 'http://thenicestplaceontheinter.net/'
       },
       week2: {
         title: "Week 2",
-        link: 'http://thenicestplaceontheinter.net/'
+        link: 'https://procatinator.com/'
       },
       week3: {
         title: "Week 3",
-        link: 'http://thenicestplaceontheinter.net/'
+        link: 'http://www.purple.com/'
       }
     }
   }
