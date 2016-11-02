@@ -6,9 +6,7 @@ import React from 'react';
 //   }
 // }
 
-const Header = ({title}) => {
-  return <h1> { title } </h1>
-}
+const Header = ({title}) => (<h1> { title } </h1>)
 
 Header.proptypes = {
   title: React.PropTypes.string.isRequired

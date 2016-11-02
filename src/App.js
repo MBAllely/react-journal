@@ -176,11 +176,11 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React, Marika!</h2>
         </div>
+        <Header title={ this.state.title }/>
         <p className="App-intro">
           La ti da hellooooooo
         </p>
 
-        <Header title={ this.state.title }/>
 
         <input
           type="text"
@@ -189,7 +189,7 @@ class App extends Component {
           onChange={ this.handleChange }
         />
 
-      <button onClick={ this.handleSubmit }>
+        <button onClick={ this.handleSubmit }>
           Submit
         </button>
 
