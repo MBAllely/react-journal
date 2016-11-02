@@ -6,19 +6,6 @@ import Week from './Week.jsx';
 
 class App extends Component {
 
-  /*
-  Using create-react-app, build a simple site that has a header component with its title set through props, and three separate instances of a "week" component that get their props from your top-level app state. That state should be one large collection of links to videos and articles broken up by their respective weeks.
-  */
-
-  /*
-  - Build a simple header component that accepts the actual title as props vs. hardcoded
-
-  - Build a 'week' component that gets its props from the corresponding 'week' object in the app's top level state
-
-  - Only have two components, a header, and three instances of 'week' with different props for each week
-  */
-
-
   constructor(props) {
     super(props);
     this.state = {
@@ -130,6 +117,32 @@ class App extends Component {
           link: 'https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi',
         },
       ],
+      week4: [
+        {
+          title: 'Handling Events',
+          link: 'https://facebook.github.io/react/docs/handling-events.html',
+        },
+        {
+          title: 'React Stateless Functional Components: Nine Wins You Might Have Overlooked',
+          link: 'https://medium.com/@housecor/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc#.qmv1l2vam',
+        },
+        {
+          title: 'ReactJS Basics - #7 Events & ReactJS',
+          link: 'https://www.youtube.com/watch?v=OcM__8q6p4c&list=PL55RiY5tL51oyA8euSROLjMFZbXaV7skS&index=8',
+        },
+        {
+          title: 'ReactJS Basics - #8 State of Components',
+          link: 'https://www.youtube.com/watch?v=e5n9j9n83OM&index=9&list=PL55RiY5tL51oyA8euSROLjMFZbXaV7skS',
+        },
+        {
+          title: 'ReactJS Basics - #9 How does ReactJS Update the DOM?',
+          link: 'https://www.youtube.com/watch?v=Iw2BLUjQo1E&list=PL55RiY5tL51oyA8euSROLjMFZbXaV7skS&index=10',
+        },
+        {
+          title: 'ReactJS Basics - #10 Stateless Components',
+          link: 'https://www.youtube.com/watch?v=SEkfzqIgvTo&list=PL55RiY5tL51oyA8euSROLjMFZbXaV7skS&index=11',
+        },
+      ]
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -142,6 +155,18 @@ class App extends Component {
   handleSubmit(event) {
     alert('Computer sez: ' + this.state.value);
   }
+
+  /*
+    HOKAY so you're gonna make a form that creates a new title/link object.
+
+    You're going to have to update the state with setState
+
+    You're going to need to do some onChange stuff
+
+    and some onSubmit stuff
+
+    fuck it let's go buy cucumbers
+  */
 
   render() {
 
@@ -171,6 +196,7 @@ class App extends Component {
         <Week weekNumber="1" week={ this.state.week1 }/>
         <Week weekNumber="2" week={ this.state.week2 }/>
         <Week weekNumber="3" week={ this.state.week3 }/>
+        <Week weekNumber="4" week={ this.state.week4 }/>
       </div>
     );
   }

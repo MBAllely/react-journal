@@ -1,0 +1,6 @@
+11-1-16
+
+Make header into stateless Component
+
+when you click the header, it'll change to 'done' OR change a color OR make some change to state
+- make an event fire on a specific event (not to each week) and set in its state
