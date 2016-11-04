@@ -1,16 +1,8 @@
 import React from 'react';
 
 export default class Week extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      color: "blue",
-      fontSize: "24px"
-    };
-  }
-
   render() {
-    const display = this.props.week.map((item, id) => {
+    const display = this.props.week.list.map((item, id) => {
       return (
         <ul key={ id }>
           <p><a href={ item.link }> { item.title } </a></p>
@@ -18,11 +10,18 @@ export default class Week extends React.Component {
       )
     })
 
+    console.log(this.props.week.list);
     return <div>
-      <h3 style={ this.state } onClick={ this.props.highlight }>
+      <h3
+        style={ this.props.style }
+        onClick={ this.props.highlight }>
         Week { this.props.weekNumber }
       </h3>
+
+      <p>Status: { this.props.status }</p>
+
       { display }
+
     </div>
   }
 }
