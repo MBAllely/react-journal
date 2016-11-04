@@ -146,6 +146,13 @@ class App extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.highlight    = this.highlight.bind(this);
+  }
+
+
+  highlight(event) {
+    this.setState({ color: "red", fontSize: "50px" });
+    alert("The color should turn red!");
   }
 
   handleChange(event) {
@@ -173,10 +180,12 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={ logo } className="App-logo" alt="logo" />
           <h2>Welcome to React, Marika!</h2>
         </div>
+
         <Header title={ this.state.title }/>
+
         <p className="App-intro">
           La ti da hellooooooo
         </p>
@@ -193,10 +202,22 @@ class App extends Component {
           Submit
         </button>
 
-        <Week weekNumber="1" week={ this.state.week1 }/>
-        <Week weekNumber="2" week={ this.state.week2 }/>
-        <Week weekNumber="3" week={ this.state.week3 }/>
-        <Week weekNumber="4" week={ this.state.week4 }/>
+        <Week
+          highlight={ this.highlight }
+          weekNumber="1"
+          week={ this.state.week1 }/>
+        <Week
+          highlight={ this.highlight }
+          weekNumber="2"
+          week={ this.state.week2 }/>
+        <Week
+          highlight={ this.highlight } 
+          weekNumber="3" 
+          week={ this.state.week3 }/>
+        <Week
+          highlight={ this.highlight } 
+          weekNumber="4" 
+          week={ this.state.week4 }/>
       </div>
     );
   }
