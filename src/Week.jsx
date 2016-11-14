@@ -10,7 +10,6 @@ export default class Week extends React.Component {
       )
     })
 
-    console.log(this.props.week.list);
     return <div>
       <h3
         style={ this.props.style }

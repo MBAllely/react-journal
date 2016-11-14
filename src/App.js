@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './Header.jsx';
 import Week from './Week.jsx';
+import NewWeek from './NewWeek.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class App extends Component {
         fontSize: "24px",
       },
       title: "This is the header!",
-      value: "",
+      weekTitle: "",
+      weekLink: "",
       week1: {
         weekNum: 1,
         done: "done",
@@ -164,12 +166,24 @@ class App extends Component {
         ]
       },
       week5: {
-
+        weekNum: 5,
+        done: "in progress",
+        list: [
+          {
+            title: 'React for Everyone #13 - Controlled Inputs',
+            link: 'https://www.youtube.com/watch?v=BvtQMxekmH0'
+          },
+          {
+            title: 'Forms',
+            link: 'https://www.youtube.com/watch?v=BvtQMxekmH0'
+          }
+        ]
       }
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.highlight    = this.highlight.bind(this);
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleLinkChange  = this.handleLinkChange.bind(this);
+    this.handleSubmit      = this.handleSubmit.bind(this);
+    this.highlight         = this.highlight.bind(this);
   }
 
 
@@ -178,28 +192,38 @@ class App extends Component {
     alert("The color should turn red!");
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
+  /*
+    OK so like
+    you've gotta make this New Week Instantiation thing
+
+    So week is the class
+
+    PLAN OF ATTACK
+
+    make a NewWeek class with properties that correspond to the existing Week objects (I think?)
+
+    X Make an input field that accepts two different inputs
+
+    Make an event handler
+      - make that event handler actually save the new week objects.  You can use .concat() for this.
+
+
+    */
+
+
+  handleTitleChange(event) {
+    this.setState({ weekTitle: event.target.value });
+  }
+
+  handleLinkChange(event) {
+    this.setState({ weekLink: event.target.value });
   }
 
   handleSubmit(event) {
-    alert('Computer sez: ' + this.state.value);
+    alert(`Survey says: ${this.state.weekTitle} ${this.state.weekLink}`);
   }
 
-  /*
-    HOKAY so you're gonna make a form that creates a new title/link object.
-
-    You're going to have to update the state with setState
-
-    You're going to need to do some onChange stuff
-
-    and some onSubmit stuff
-
-    fuck it let's go buy cucumbers
-  */
-
   render() {
-
     return (
       <div className="App">
         <div className="App-header">
@@ -213,17 +237,13 @@ class App extends Component {
           La ti da hellooooooo
         </p>
 
-
-        <input
-          type="text"
-          placeholder="HOI I'M TEMMY"
-          value={ this.state.value }
-          onChange={ this.handleChange }
+        <NewWeek
+          weekTitle={ this.state.weekTitle }
+          weekLink={ this.state.weekLink }
+          handleTitleChange={ this.handleTitleChange }
+          handleLinkChange={ this.handleLinkChange }
+          handleSubmit={ this.handleSubmit }
         />
-
-        <button onClick={ this.handleSubmit }>
-          Submit
-        </button>
 
         <Week
           style={ this.state.style }
@@ -249,6 +269,12 @@ class App extends Component {
           status={ this.state.week4.done }
           weekNumber={ this.state.week4.weekNum }
           week={ this.state.week4 }/>
+        <Week
+          style={ this.state.style }
+          highlight={ this.highlight }
+          status={ this.state.week5.done }
+          weekNumber={ this.state.week5.weekNum }
+          week={ this.state.week5 }/>
       </div>
     );
   }
