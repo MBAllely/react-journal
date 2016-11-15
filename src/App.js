@@ -9,10 +9,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      style: {
-        color: "blue",
-        fontSize: "24px",
-      },
       title: "This is the header!",
       week1: {
         weekNum: 1,
@@ -165,7 +161,7 @@ class App extends Component {
       },
       week5: {
         weekNum: 5,
-        done: "in progress",
+        done: "done",
         list: [
           {
             title: 'React for Everyone #13 - Controlled Inputs',
@@ -173,7 +169,37 @@ class App extends Component {
           },
           {
             title: 'Forms',
-            link: 'https://www.youtube.com/watch?v=BvtQMxekmH0'
+            link: 'https://facebook.github.io/react/docs/forms.html'
+          },
+          {
+            title: 'Synthetic Events in React',
+            link: 'https://facebook.github.io/react/docs/events.html#mouse-events'
+          },
+          {
+            title: 'JavaScript Fatigue',
+            link: 'https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4#.rs1jyxnoq'
+          }
+        ]
+      },
+      week6: {
+        weekNum: 6,
+        done: 'in progress',
+        list: [
+          {
+            title: 'State and Lifecycle',
+            link: 'https://facebook.github.io/react/docs/state-and-lifecycle.html'
+          },
+          {
+            title: 'React.Component',
+            link: 'https://facebook.github.io/react/docs/react-component.html'
+          },
+          {
+            title: 'ReactJS Basics - #14 Component Lifecycle',
+            link: 'https://www.youtube.com/watch?v=Oioo0IdoEls'
+          },
+          {
+            title: 'Typical Use Cases for React Lifecycle Methods',
+            link: 'http://stackoverflow.com/questions/38929991/what-are-typical-use-cases-for-react-lifecycle-methods-like-componentwillreceive'
           }
         ]
       }

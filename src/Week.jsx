@@ -7,6 +7,10 @@ export default class Week extends React.Component {
       weekTitle: "",
       weekLink: "",
       selectedWeek: "",
+      style: {
+        color: "blue",
+        fontSize: "24px",
+      },
     };
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleLinkChange  = this.handleLinkChange.bind(this);
@@ -27,7 +31,6 @@ export default class Week extends React.Component {
       title: this.state.weekTitle,
       link: this.state.weekLink,
     }
-
 
     //send data back up
     this.props.addToList(newEntry, this.props.weekId);
