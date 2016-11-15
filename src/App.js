@@ -205,10 +205,13 @@ class App extends Component {
     X Make an input field that accepts two different inputs
 
     Make an event handler
-      - make that event handler actually save the new week objects.  You can use .concat() for this.
+      - make that event handler actually save the new week objects.  You can use .concat() for this, and it can handle all changes
 
+    Make an onChange handler
 
     */
+
+
 
 
   handleTitleChange(event) {
@@ -238,11 +241,7 @@ class App extends Component {
         </p>
 
         <NewWeek
-          weekTitle={ this.state.weekTitle }
-          weekLink={ this.state.weekLink }
-          handleTitleChange={ this.handleTitleChange }
-          handleLinkChange={ this.handleLinkChange }
-          handleSubmit={ this.handleSubmit }
+
         />
 
         <Week
@@ -250,31 +249,61 @@ class App extends Component {
           highlight={ this.highlight }
           status={ this.state.week1.done }
           weekNumber={ this.state.week1.weekNum }
-          week={ this.state.week1 }/>
+          week={ this.state.week1 }
+          weekTitle={ this.state.weekTitle }
+          weekLink={ this.state.weekLink }
+          handleTitleChange={ this.handleTitleChange }
+          handleLinkChange={ this.handleLinkChange }
+          handleSubmit={ this.handleSubmit }/>
+
         <Week
           style={ this.state.style }
           highlight={ this.highlight }
           status={ this.state.week2.done }
           weekNumber={ this.state.week2.weekNum }
-          week={ this.state.week2 }/>
+          week={ this.state.week2 }
+          weekTitle={ this.state.weekTitle }
+          weekLink={ this.state.weekLink }
+          handleTitleChange={ this.handleTitleChange }
+          handleLinkChange={ this.handleLinkChange }
+          handleSubmit={ this.handleSubmit }/>
+
         <Week
           style={ this.state.style }
           highlight={ this.highlight }
           status={ this.state.week3.done }
           weekNumber={ this.state.week3.weekNum }
-          week={ this.state.week3 }/>
+          week={ this.state.week3 }
+          weekTitle={ this.state.weekTitle }
+          weekLink={ this.state.weekLink }
+          handleTitleChange={ this.handleTitleChange }
+          handleLinkChange={ this.handleLinkChange }
+          handleSubmit={ this.handleSubmit }/>
+
         <Week
           style={ this.state.style }
           highlight={ this.highlight }
           status={ this.state.week4.done }
           weekNumber={ this.state.week4.weekNum }
-          week={ this.state.week4 }/>
+          week={ this.state.week4 }
+          weekTitle={ this.state.weekTitle }
+          weekLink={ this.state.weekLink }
+          handleTitleChange={ this.handleTitleChange }
+          handleLinkChange={ this.handleLinkChange }
+          handleSubmit={ this.handleSubmit }/>
+
         <Week
           style={ this.state.style }
           highlight={ this.highlight }
           status={ this.state.week5.done }
           weekNumber={ this.state.week5.weekNum }
-          week={ this.state.week5 }/>
+          week={ this.state.week5 }
+          weekTitle={ this.state.weekTitle }
+          weekLink={ this.state.weekLink }
+          handleTitleChange={ this.handleTitleChange }
+          handleLinkChange={ this.handleLinkChange }
+          handleSubmit={ this.handleSubmit }/>
+
       </div>
     );
   }
