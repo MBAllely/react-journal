@@ -204,13 +204,7 @@ class App extends Component {
         ]
       }
     };
-    this.highlight    = this.highlight.bind(this);
     this.addToList    = this.addToList.bind(this);
-  }
-
-  highlight(event) {
-    this.setState({ style: { color: "red", fontSize: "50px" } });
-    alert("The color should turn red!");
   }
 
   addToList(newEntry, selectedWeek) {
@@ -255,36 +249,26 @@ class App extends Component {
         <NewWeek />
 
         <Week
-          style={ this.state.style }
-          highlight={ this.highlight }
           week={ this.state.week1 }
           weekId={ 'week1' }
           addToList={ this.addToList } />
 
         <Week
-          style={ this.state.style }
-          highlight={ this.highlight }
           week={ this.state.week2 }
           weekId={ 'week2' }
           addToList={ this.addToList } />
 
         <Week
-          style={ this.state.style }
-          highlight={ this.highlight }
           week={ this.state.week3 }
           weekId={ 'week3' }
           addToList={ this.addToList } />
 
         <Week
-          style={ this.state.style }
-          highlight={ this.highlight }
           week={ this.state.week4 }
           weekId={ 'week4' }
           addToList={ this.addToList } />
 
         <Week
-          style={ this.state.style }
-          highlight={ this.highlight }
           week={ this.state.week5 }
           weekId={ 'week5' }
           addToList={ this.addToList } />

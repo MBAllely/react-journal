@@ -15,6 +15,7 @@ export default class Week extends React.Component {
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleLinkChange  = this.handleLinkChange.bind(this);
     this.onFormSubmit      = this.onFormSubmit.bind(this);
+    this.highlight    = this.highlight.bind(this);
   }
 
   handleTitleChange(event) {
@@ -41,6 +42,11 @@ export default class Week extends React.Component {
     this.setState({ weekTitle: '', weekLink: '' })
   }
 
+  highlight(event) {
+    this.setState({ style: { color: "red", fontSize: "50px" } });
+    alert("The color should turn red!");
+  }
+
   render() {
     const week = this.props.week;
 
@@ -54,8 +60,8 @@ export default class Week extends React.Component {
 
     return <div>
       <h3
-        style={ this.props.style }
-        onClick={ this.props.highlight }>
+        style={ this.state.style }
+        onClick={ this.highlight }>
         Week { week.weekNum }
       </h3>
 
