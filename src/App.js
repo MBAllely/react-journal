@@ -14,8 +14,6 @@ class App extends Component {
         fontSize: "24px",
       },
       title: "This is the header!",
-      weekTitle: "",
-      weekLink: "",
       week1: {
         weekNum: 1,
         done: "done",
@@ -180,16 +178,19 @@ class App extends Component {
         ]
       }
     };
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleLinkChange  = this.handleLinkChange.bind(this);
-    this.handleSubmit      = this.handleSubmit.bind(this);
-    this.highlight         = this.highlight.bind(this);
+    this.highlight    = this.highlight.bind(this);
+    this.addToList    = this.addToList.bind(this);
   }
-
 
   highlight(event) {
     this.setState({ style: { color: "red", fontSize: "50px" } });
     alert("The color should turn red!");
+  }
+
+  addToList(newEntry, selectedWeek) {
+    const dataCopy = Object.assign([], this.state);
+    console.log(dataCopy[selectedWeek].list);
+    dataCopy[selectedWeek].list.push(newEntry);
   }
 
   /*
@@ -211,21 +212,6 @@ class App extends Component {
 
     */
 
-
-
-
-  handleTitleChange(event) {
-    this.setState({ weekTitle: event.target.value });
-  }
-
-  handleLinkChange(event) {
-    this.setState({ weekLink: event.target.value });
-  }
-
-  handleSubmit(event) {
-    alert(`Survey says: ${this.state.weekTitle} ${this.state.weekLink}`);
-  }
-
   render() {
     return (
       <div className="App">
@@ -240,69 +226,42 @@ class App extends Component {
           La ti da hellooooooo
         </p>
 
-        <NewWeek
-
-        />
+        <NewWeek />
 
         <Week
           style={ this.state.style }
           highlight={ this.highlight }
-          status={ this.state.week1.done }
-          weekNumber={ this.state.week1.weekNum }
           week={ this.state.week1 }
-          weekTitle={ this.state.weekTitle }
-          weekLink={ this.state.weekLink }
-          handleTitleChange={ this.handleTitleChange }
-          handleLinkChange={ this.handleLinkChange }
-          handleSubmit={ this.handleSubmit }/>
+          weekId={ 'week1' }
+          addToList={ this.addToList } />
 
         <Week
           style={ this.state.style }
           highlight={ this.highlight }
-          status={ this.state.week2.done }
-          weekNumber={ this.state.week2.weekNum }
           week={ this.state.week2 }
-          weekTitle={ this.state.weekTitle }
-          weekLink={ this.state.weekLink }
-          handleTitleChange={ this.handleTitleChange }
-          handleLinkChange={ this.handleLinkChange }
-          handleSubmit={ this.handleSubmit }/>
+          weekId={ 'week2' }
+          addToList={ this.addToList } />
 
         <Week
           style={ this.state.style }
           highlight={ this.highlight }
-          status={ this.state.week3.done }
-          weekNumber={ this.state.week3.weekNum }
           week={ this.state.week3 }
-          weekTitle={ this.state.weekTitle }
-          weekLink={ this.state.weekLink }
-          handleTitleChange={ this.handleTitleChange }
-          handleLinkChange={ this.handleLinkChange }
-          handleSubmit={ this.handleSubmit }/>
+          weekId={ 'week3' }
+          addToList={ this.addToList } />
 
         <Week
           style={ this.state.style }
           highlight={ this.highlight }
-          status={ this.state.week4.done }
-          weekNumber={ this.state.week4.weekNum }
           week={ this.state.week4 }
-          weekTitle={ this.state.weekTitle }
-          weekLink={ this.state.weekLink }
-          handleTitleChange={ this.handleTitleChange }
-          handleLinkChange={ this.handleLinkChange }
-          handleSubmit={ this.handleSubmit }/>
+          weekId={ 'week4' }
+          addToList={ this.addToList } />
 
         <Week
           style={ this.state.style }
           highlight={ this.highlight }
-          status={ this.state.week5.done }
-          weekNumber={ this.state.week5.weekNum }
           week={ this.state.week5 }
-          weekTitle={ this.state.weekTitle }
-          weekLink={ this.state.weekLink }
-          handleTitleChange={ this.handleTitleChange }
-          handleLinkChange={ this.handleLinkChange }
-          handleSubmit={ this.handleSubmit }/>
+          weekId={ 'week5' }
+          addToList={ this.addToList } />
 
       </div>
     );

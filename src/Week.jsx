@@ -1,8 +1,47 @@
 import React from 'react';
 
 export default class Week extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      weekTitle: "",
+      weekLink: "",
+      selectedWeek: "",
+    };
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleLinkChange  = this.handleLinkChange.bind(this);
+    this.onFormSubmit      = this.onFormSubmit.bind(this);
+  }
+
+  handleTitleChange(event) {
+    this.setState({ weekTitle: event.target.value });
+  }
+
+  handleLinkChange(event) {
+    this.setState({ weekLink: event.target.value });
+  }
+
+  onFormSubmit(event) {
+    event.preventDefault();
+    let newEntry = {
+      title: this.state.weekTitle,
+      link: this.state.weekLink,
+    }
+
+
+    //send data back up
+    this.props.addToList(newEntry, this.props.weekId);
+
+    alert(`Survey says: ${this.state.weekTitle} ${this.state.weekLink} ${this.props.weekId}`);
+
+    //teardown
+    this.setState({ weekTitle: '', weekLink: '' })
+  }
+
   render() {
-    const display = this.props.week.list.map((item, id) => {
+    const week = this.props.week;
+
+    const display = week.list.map((item, id) => {
       return (
         <ul key={ id }>
           <p><a href={ item.link }> { item.title } </a></p>
@@ -14,7 +53,7 @@ export default class Week extends React.Component {
       <h3
         style={ this.props.style }
         onClick={ this.props.highlight }>
-        Week { this.props.weekNumber }
+        Week { week.weekNum }
       </h3>
 
       <p>Status: { this.props.status }</p>
@@ -22,28 +61,33 @@ export default class Week extends React.Component {
       { display }
 
       <div>
-        <h4>Add a new resource:</h4>
-        <label>Title: </label>
-        <input
-          type="text"
-          placeholder="HOI"
-          value={ this.props.weekTitle }
-          onChange={ this.props.handleTitleChange }
-        />
+        <h4>Add a new resource: </h4>
+        <form onSubmit={ this.onFormSubmit } id={ this.props.weekID }>
+          <label>Title: </label>
+          <input
+            type="text"
+            placeholder="HOI"
+            value={ week.weekTitle }
+            onChange={ this.handleTitleChange }
+          />
 
-      <label>Link URL: </label>
+        <p></p>
+
+        <label>Link URL: </label>
         <input
           type="text"
           placeholder="I'M TEMMY"
-          value={ this.props.weekLink }
-          onChange={ this.props.handleLinkChange }
+          value={ week.weekLink }
+          onChange={ this.handleLinkChange }
         />
 
-      <button onClick={ this.props.handleSubmit }>
-          Submit
-        </button>
-      </div>
+        <p></p>
 
+        <button type="submit">
+            Submit
+        </button>
+      </form>
+      </div>
 
     </div>
   }
