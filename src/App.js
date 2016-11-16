@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './Header.jsx';
 import Week from './Week.jsx';
-import NewWeek from './NewWeek.jsx';
 
 class App extends Component {
   constructor(props) {
