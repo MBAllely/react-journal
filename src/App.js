@@ -217,14 +217,11 @@ class App extends Component {
     let newWeek = {
       weekNum: this.state.weeks.length + 1,
       done: "in progress",
-      list: [],
+      list: [{ title: 'default', link: 'props.com'}],
     };
-    const dataCopy = Object.assign([], this.state);
-    dataCopy.weeks.push(newWeek);
-    console.log(newWeek);
-    alert(`Week ${newWeek.weekNum} is ${newWeek.done}`)
-    //Will need to rerender.  componentWillUpdate()?
-
+    const dataCopy = Object.assign([], this.state.weeks);
+    dataCopy.push(newWeek);
+    this.setState({ weeks: dataCopy })
   }
 
   /*
