@@ -15,7 +15,7 @@ export default class Week extends React.Component {
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleLinkChange  = this.handleLinkChange.bind(this);
     this.onFormSubmit      = this.onFormSubmit.bind(this);
-    this.highlight    = this.highlight.bind(this);
+    this.highlight         = this.highlight.bind(this);
   }
 
   handleTitleChange(event) {
@@ -32,11 +32,11 @@ export default class Week extends React.Component {
       title: this.state.weekTitle,
       link: this.state.weekLink,
     }
+    alert(`Survey says: ${this.state.weekTitle} ${this.state.weekLink} ${this.props.week.weekNum}`);
 
     //send data back up
-    this.props.addToList(newEntry, this.props.weekId);
+    this.props.addToList(newEntry, this.props.week.weekNum);
 
-    alert(`Survey says: ${this.state.weekTitle} ${this.state.weekLink} ${this.props.weekId}`);
 
     //teardown
     this.setState({ weekTitle: '', weekLink: '' })
@@ -71,7 +71,7 @@ export default class Week extends React.Component {
 
       <div>
         <h4>Add a new resource: </h4>
-        <form onSubmit={ this.onFormSubmit } id={ this.props.weekID }>
+        <form onSubmit={ this.onFormSubmit } id={ week.weekNum }>
           <label>Title: </label>
           <input
             type="text"

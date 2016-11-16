@@ -6,7 +6,6 @@ export default class NewWeek extends React.Component {
 
   }
   render() {
-    console.log(this);
     return <div>Hi</div>
   }
 }

@@ -11,3 +11,29 @@ when you click the header, it'll change to 'done' OR change a color OR make some
 4. Add 'add new week' functionality.  It's ok to see how other people did it
 5. Maybe refactor so state data is stored in another file?
 6. Refactor style change back to the Week component; add it in the Week component's state.  You'e done it once, you can do it again.
+
+
+        <Week
+          week={ this.state.week1 }
+          weekId={ 'week1' }
+          addToList={ this.addToList } />
+
+        <Week
+          week={ this.state.week2 }
+          weekId={ 'week2' }
+          addToList={ this.addToList } />
+
+        <Week
+          week={ this.state.week3 }
+          weekId={ 'week3' }
+          addToList={ this.addToList } />
+
+        <Week
+          week={ this.state.week4 }
+          weekId={ 'week4' }
+          addToList={ this.addToList } />
+
+        <Week
+          week={ this.state.week5 }
+          weekId={ 'week5' }
+          addToList={ this.addToList } />
