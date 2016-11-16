@@ -14,4 +14,4 @@ XXX 4. Add 'add new week' functionality.  It's ok to see how other people did it
 5. Maybe refactor so state data is stored in another file?
 XXX 6. Refactor style change back to the Week component; add it in the Week component's state.  You'e done it once, you can do it again.
 7. Maybe refactor Week Component into Week and AddResource?
-8. Get the DOM to rerender when a new week is created
+XXX 8. Get the DOM to rerender when a new week is created

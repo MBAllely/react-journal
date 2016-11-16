@@ -224,25 +224,49 @@ class App extends Component {
     this.setState({ weeks: dataCopy })
   }
 
+  componentWillMount() {
+    console.log("The component will mount");
+  }
+
+  componentDidMount() {
+    console.log("The component mounted");
+  }
+
+  componentWillReceiveProps() {
+    console.log("Component will receive props");
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("Should component update?", nextProps, nextState);
+    return true;
+  }
+
+  componentWillUpdate() {
+    console.log("Component will update");
+  }
+
+  componentDidUpdate() {
+    console.log("The component updated");
+  }
+
+  componentWillUnmount() {
+    console.log("component will unmount");
+  }
+
   /*
-    OK so like
-    you've gotta make this New Week Instantiation thing
+    oh oh oh let's do some API stuff
 
-    So week is the class
+    because
 
-    PLAN OF ATTACK
+    why not
 
-    make a NewWeek class with properties that correspond to the existing Week objects (I think?)
+    XKCD has an api
 
-    Make a button that will trigger the creation of a new week item.
+    looks simple enough
 
-    Will it need state?  Yes.  Will it need props passed down, or will it only pass props up?
+    maybe it can display a random xkcd comic on each render
 
-    Make an event handler
-      - make that event handler actually save the new week object.  You can use .concat() for this, and it can handle all changes
-
-    Does this even need to be a separate component?
-
+    yes.
     */
 
   render() {
@@ -270,6 +294,7 @@ class App extends Component {
         <p className="App-intro">
           La ti da hellooooooo
         </p>
+        <img src={"http:\/\/imgs.xkcd.com\/comics\/crossbows.png"} alt={"If you don't have an extension cord I can get that too.  Because we're friends!  Right?"}/>
 
         { weekDisplay }
 
