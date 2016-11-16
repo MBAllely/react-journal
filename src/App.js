@@ -206,11 +206,26 @@ class App extends Component {
       ]
     };
     this.addToList = this.addToList.bind(this);
+    this.addWeek   = this.addWeek.bind(this);
   }
 
   addToList(newEntry, selectedWeek) {
     const dataCopy = Object.assign([], this.state);
     dataCopy.weeks[selectedWeek - 1].list.push(newEntry);
+  }
+
+  addWeek() {
+    let newWeek = {
+      weekNum: this.state.weeks.length + 1,
+      done: "in progress",
+      list: [],
+    };
+    const dataCopy = Object.assign([], this.state);
+    dataCopy.weeks.push(newWeek);
+    console.log(newWeek);
+    alert(`Week ${newWeek.weekNum} is ${newWeek.done}`)
+    //Will need to rerender.  componentWillUpdate()?
+
   }
 
   /*
@@ -223,12 +238,14 @@ class App extends Component {
 
     make a NewWeek class with properties that correspond to the existing Week objects (I think?)
 
-    X Make an input field that accepts two different inputs
+    Make a button that will trigger the creation of a new week item.
+
+    Will it need state?  Yes.  Will it need props passed down, or will it only pass props up?
 
     Make an event handler
-      - make that event handler actually save the new week objects.  You can use .concat() for this, and it can handle all changes
+      - make that event handler actually save the new week object.  You can use .concat() for this, and it can handle all changes
 
-    Make an onChange handler
+    Does this even need to be a separate component?
 
     */
 
@@ -258,9 +275,9 @@ class App extends Component {
           La ti da hellooooooo
         </p>
 
-        <NewWeek />
-
         { weekDisplay }
+
+        <button onClick={ this.addWeek }>Add new week!</button>
 
       </div>
     );

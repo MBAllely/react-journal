@@ -1,3 +1,5 @@
+TO DO (ongoing)
+
 11-1-16
 
 Make header into stateless Component
@@ -5,35 +7,11 @@ Make header into stateless Component
 when you click the header, it'll change to 'done' OR change a color OR make some change to state
 - make an event fire on a specific event (not to each week) and set in its state
 
-1. Watch/read study material & take notes
-2. Add missing resources to codebase
-3. Refactor the week display to map instead of hard code the weeks
-4. Add 'add new week' functionality.  It's ok to see how other people did it
+XXX 1. Watch/read study material & take notes
+XXX 2. Add missing resources to codebase
+XXX 3. Refactor the week display to map instead of hard code the weeks
+XXX 4. Add 'add new week' functionality.  It's ok to see how other people did it
 5. Maybe refactor so state data is stored in another file?
-6. Refactor style change back to the Week component; add it in the Week component's state.  You'e done it once, you can do it again.
-
-
-        <Week
-          week={ this.state.week1 }
-          weekId={ 'week1' }
-          addToList={ this.addToList } />
-
-        <Week
-          week={ this.state.week2 }
-          weekId={ 'week2' }
-          addToList={ this.addToList } />
-
-        <Week
-          week={ this.state.week3 }
-          weekId={ 'week3' }
-          addToList={ this.addToList } />
-
-        <Week
-          week={ this.state.week4 }
-          weekId={ 'week4' }
-          addToList={ this.addToList } />
-
-        <Week
-          week={ this.state.week5 }
-          weekId={ 'week5' }
-          addToList={ this.addToList } />
+XXX 6. Refactor style change back to the Week component; add it in the Week component's state.  You'e done it once, you can do it again.
+7. Maybe refactor Week Component into Week and AddResource?
+8. Get the DOM to rerender when a new week is created

@@ -37,7 +37,6 @@ export default class Week extends React.Component {
     //send data back up
     this.props.addToList(newEntry, this.props.week.weekNum);
 
-
     //teardown
     this.setState({ weekTitle: '', weekLink: '' })
   }
